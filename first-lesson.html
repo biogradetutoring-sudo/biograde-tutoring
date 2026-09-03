@@ -64,7 +64,7 @@
 
     <div class="booking-card">
       <h3>Request your first session</h3>
-      <p class="small">This opens a pre-filled email &mdash; nothing is sent automatically, and nothing is booked until it's confirmed.</p>
+      <p class="small">This opens a pre-filled Gmail draft in a new tab &mdash; nothing is sent automatically, and nothing is booked until it's confirmed.</p>
       <form id="bookingForm">
         <div class="field">
           <label for="name">Your name (or parent's name)</label>
@@ -137,17 +137,19 @@
     const goal = document.getElementById('goalgrade').value;
     const type = document.getElementById('sessiontype').value;
     const notes = document.getElementById('notes').value;
-    const subject = encodeURIComponent('First session request — ' + name);
-    const body = encodeURIComponent(
+    const subject = 'First session request — ' + name;
+    const body =
       'Name: ' + name + '\n' +
       'Year group: ' + year + '\n' +
       'Current grade: ' + current + '\n' +
       'Predicted grade: ' + predicted + '\n' +
       'Goal grade: ' + goal + '\n' +
       'Interested in: ' + type + '\n' +
-      'Notes: ' + notes
-    );
-    window.location.href = 'mailto:biogradetutoring@gmail.com?subject=' + subject + '&body=' + body;
+      'Notes: ' + notes;
+    const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=biogradetutoring@gmail.com'
+      + '&su=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+    window.open(gmailUrl, '_blank');
   });
 </script>
 
