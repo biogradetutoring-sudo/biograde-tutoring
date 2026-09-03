@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your First Lesson — BioGrade Tutoring</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="logo.png" alt="BioGrade Tutoring logo" class="brand-logo">
+    </a>
+    <nav>
+      <a href="index.html#about">About</a>
+      <a href="plans.html">Plans</a>
+      <a href="index.html#how">How it works</a>
+      <a href="first-lesson.html" class="nav-cta">Book a lesson</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow-note">Always 1:1 &middot; always discounted</p>
+    <h1>Your first lesson</h1>
+    <p class="lede">Every student starts the same way, no matter which plan you eventually join &mdash; one discounted 1:1 session, so lessons afterwards are built around exactly where you're starting from.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap info-grid">
+    <div>
+      <div class="info-block">
+        <span class="kicker">FORMAT &amp; PRICE</span>
+        <h3>1:1, and £10 off</h3>
+        <p>The first lesson is always one-to-one, priced at £8 instead of the usual £18 &mdash; even if you're planning to join a group plan afterwards. This keeps the risk low while we figure out if it's a good fit.</p>
+      </div>
+      <div class="info-block">
+        <span class="kicker">WHAT HAPPENS IN IT</span>
+        <h3>A proper starting point, not a sales pitch</h3>
+        <p>We'll talk through where things currently stand &mdash; topics that feel shaky, what's coming up in class, and your goal grade &mdash; then work through a short practice question together so you can see exactly how sessions are run and what the feedback style looks like.</p>
+      </div>
+      <div class="info-block">
+        <span class="kicker">AFTER THE SESSION</span>
+        <h3>No obligation either way</h3>
+        <p>Once it's done, you decide whether to continue &mdash; 1:1, a weekday small group, or the weekend group &mdash; or not at all. Nothing is automatically booked beyond the first session.</p>
+      </div>
+      <div class="info-block">
+        <span class="kicker">PAYMENT</span>
+        <h3>PayPal, for now</h3>
+        <p>Payment is currently taken via PayPal, sent after the session is confirmed. More payment options may be added later.</p>
+      </div>
+      <div class="info-block">
+        <span class="kicker">TIMING</span>
+        <h3>Fits around a weekly timetable</h3>
+        <p>Ongoing plans run on a fixed weekly timetable (see the <a href="plans.html" style="color:var(--moss-deep); border-bottom:1px solid var(--moss-deep);">Plans page</a>), and weekday slots are usually scheduled between <b>4&ndash;5pm</b>. Your first lesson time is arranged directly once you get in touch.</p>
+      </div>
+    </div>
+
+    <div class="booking-card">
+      <h3>Request your first session</h3>
+      <p class="small">This opens a pre-filled Gmail draft in a new tab &mdash; nothing is sent automatically, and nothing is booked until it's confirmed.</p>
+      <form id="bookingForm">
+        <div class="field">
+          <label for="name">Your name (or parent's name)</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="field">
+          <label for="studentyear">Student's year group</label>
+          <select id="studentyear">
+            <option>Year 9</option>
+            <option selected>Year 10</option>
+            <option>Year 11</option>
+          </select>
+        </div>
+        <div class="field field-row">
+          <div>
+            <label for="currentgrade">Current grade</label>
+            <select id="currentgrade">
+              <option>U</option><option>1</option><option>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6</option><option selected>7</option><option>8</option><option>9</option>
+            </select>
+          </div>
+          <div>
+            <label for="predictedgrade">Predicted grade</label>
+            <select id="predictedgrade">
+              <option>U</option><option>1</option><option>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6</option><option>7</option><option selected>8</option><option>9</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="goalgrade">Goal grade</label>
+          <select id="goalgrade">
+            <option>1</option><option>2</option><option>3</option><option>4</option>
+            <option>5</option><option>6</option><option>7</option><option>8</option><option selected>9</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sessiontype">Plan you're interested in afterwards</label>
+          <select id="sessiontype">
+            <option>1:1</option>
+            <option>Weekday small group (1:4)</option>
+            <option>Weekend small group (1:3)</option>
+            <option>Not sure &mdash; help me choose</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="notes">What would help most right now?</label>
+          <textarea id="notes" placeholder="e.g. struggling with genetics, want top grade in triple science..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-solid">Send request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>BioGrade Tutoring &mdash; AQA GCSE Biology</span>
+    <span>Based online &middot; UK exam board</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('bookingForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const year = document.getElementById('studentyear').value;
+    const current = document.getElementById('currentgrade').value;
+    const predicted = document.getElementById('predictedgrade').value;
+    const goal = document.getElementById('goalgrade').value;
+    const type = document.getElementById('sessiontype').value;
+    const notes = document.getElementById('notes').value;
+    const subject = 'First session request — ' + name;
+    const body =
+      'Name: ' + name + '\n' +
+      'Year group: ' + year + '\n' +
+      'Current grade: ' + current + '\n' +
+      'Predicted grade: ' + predicted + '\n' +
+      'Goal grade: ' + goal + '\n' +
+      'Interested in: ' + type + '\n' +
+      'Notes: ' + notes;
+    const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=biogradetutoring@gmail.com'
+      + '&su=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+    window.open(gmailUrl, '_blank');
+  });
+</script>
+
+</body>
+</html>
